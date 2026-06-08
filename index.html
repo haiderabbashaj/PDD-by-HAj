@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>PDD by HAj</h1>
+  <h2>Complete Necropsy Examination System</h2>
+
+  <hr>
+
+  <h3>External Examination</h3>
+
+  <p>Body Condition:</p>
+  <select id="body">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="emaciated">Emaciated</option>
+    <option value="weak">Weak</option>
+  </select>
+
+  <p>Feather:</p>
+  <select id="feather">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="picking">Feather Picking</option>
+    <option value="dirty">Dirty</option>
+  </select>
+
+  <p>Skin:</p>
+  <select id="skin">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="lesion">Lesions</option>
+    <option value="parasites">Parasites</option>
+  </select>
+
+  <p>Head:</p>
+  <select id="head">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="swollen">Swollen</option>
+  </select>
+
+  <p>Beak:</p>
+  <select id="beak">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="deformed">Deformed</option>
+  </select>
+
+  <p>Comb & Wattles:</p>
+  <select id="comb">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="pale">Pale</option>
+    <option value="swollen">Swollen</option>
+  </select>
+
+  <p>Eyes:</p>
+  <select id="eyes">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="discharge">Discharge</option>
+    <option value="blind">Blind</option>
+  </select>
+
+  <p>Natural Orifices:</p>
+  <select id="orifices">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="discharge">Discharge</option>
+    <option value="infected">Infected</option>
+  </select>
+
+  <hr>
+
+  <h3>Internal Examination</h3>
+
+  <p>Muscles:</p>
+  <select id="muscles">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="emaciated">Emaciated</option>
+  </select>
+
+  <p>Keel Bone:</p>
+  <select id="keel">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="breastblister">Breast Blister</option>
+  </select>
+
+  <p>Air Sacs:</p>
+  <select id="airsacs">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="cloudy">Cloudy</option>
+    <option value="infected">Infected</option>
+  </select>
+
+  <p>Liver:</p>
+  <select id="liver">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="enlarged">Enlarged</option>
+    <option value="necrotic">Necrotic</option>
+  </select>
+
+  <p>Spleen:</p>
+  <select id="spleen">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="enlarged">Enlarged</option>
+  </select>
+
+  <p>Joints:</p>
+  <select id="joints">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="swollen">Swollen</option>
+    <option value="pus">Pus</option>
+  </select>
+
+  <p>Lymphoid Tissue:</p>
+  <select id="lymph">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="atrophied">Atrophied</option>
+  </select>
+
+  <p>Brain:</p>
+  <select id="brain">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="lesion">Lesion</option>
+  </select>
+
+  <p>Respiratory Organs:</p>
+  <select id="resp">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="pneumonia">Pneumonia</option>
+    <option value="mucus">Mucus</option>
+  </select>
+
+  <p>Intestinal Tract:</p>
+  <select id="intestine">
+    <option value="">Select</option>
+    <option value="normal">Normal</option>
+    <option value="bloody">Bloody</option>
+    <option value="inflamed">Inflamed</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="detectDisease()">Analyze Necropsy</button>
+
+  <hr>
+
+  <h2>Result</h2>
+  <p id="result">Result will appear here</p>
+
+</div>
+<script src="script.js">
+  
+</script>
+
+</body>
+</html>
