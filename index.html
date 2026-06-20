@@ -1,174 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDD by HAj</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <header>
+        <h1>PDD by HAj</h1>
+        <p>Poultry Disease Diagnostic Tool | Necropsy Expert System</p>
+    </header>
 
-  <h1>PDD by HAj</h1>
-  <h2>Complete Necropsy Examination System</h2>
+    <div class="container">
+        
+        <div class="section-title">1. External Examination</div>
+        
+        <div class="form-group">
+            <label for="body_condition">Body Condition & Posture:</label>
+            <select id="body_condition">
+                <option value="normal">Normal</option>
+                <option value="paralysis">Lameness / Paralysis of legs & wings / Star gazing</option>
+                <option value="dehydration">Dehydration / Razor blade breast / Tight skin</option>
+                <option value="stargazing">Star gazing posture</option>
+            </select>
+        </div>
 
-  <hr>
+        <div class="form-group">
+            <label for="feather">Feathers & Vent Area:</label>
+            <select id="feather">
+                <option value="normal">Normal</option>
+                <option value="green_pasting">Greenish mucoid pasting around vent/feathers</option>
+                <option value="grey_white_pasting">Grey-white mucoid pasting / Picking at own vent</option>
+                <option value="chalky_white">Chalky white excreta / Vent pasting (Chicks)</option>
+                <option value="marek_follicle">Lymphoid tissue damage in feather follicles</option>
+            </select>
+        </div>
 
-  <h3>External Examination</h3>
+        <div class="form-group">
+            <label for="skin">Skin & Carcass:</label>
+            <select id="skin">
+                <option value="normal">Normal</option>
+                <option value="icteric">Pale and icteric (Jaundice / Yellowish)</option>
+                <option value="subcut_hem">Subcutaneous hemorrhages under wings, legs, breast</option>
+                <option value="gangrenous">Dark areas / Necrosis of skin / Wing rot / Bad odor</option>
+                <option value="pox_crust">Vesicles, pustules or scabs on unfeathered skin</option>
+            </select>
+        </div>
 
-  <p>Body Condition:</p>
-  <select id="body">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="emaciated">Emaciated</option>
-    <option value="weak">Weak</option>
-  </select>
+        <div class="form-group">
+            <label for="head">Head & Face:</label>
+            <select id="head">
+                <option value="normal">Normal</option>
+                <option value="subcut_oedema">Periorbital swelling / Subcutaneous oedema of head & face</option>
+            </select>
+        </div>
 
-  <p>Feather:</p>
-  <select id="feather">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="picking">Feather Picking</option>
-    <option value="dirty">Dirty</option>
-  </select>
+        <div class="form-group">
+            <label for="comb">Comb & Wattles:</label>
+            <select id="comb">
+                <option value="normal">Normal (Bright Red)</option>
+                <option value="anemia">Pale comb and wattles (Anemia)</option>
+                <option value="cyanotic">Cyanotic wattles & comb (Blue/Purple)</option>
+                <option value="cholera_swollen">Swollen and hemorrhagic wattles/throat</option>
+            </select>
+        </div>
 
-  <p>Skin:</p>
-  <select id="skin">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="lesion">Lesions</option>
-    <option value="parasites">Parasites</option>
-  </select>
+        <div class="form-group">
+            <label for="eyes">Eyes:</label>
+            <select id="eyes">
+                <option value="normal">Normal</option>
+                <option value="discharge">Oedema, lacrimation, excessive fluid discharge</option>
+                <option value="grey_eye">Grey eye / Opacity of cornea / Deformed pupil</option>
+                <option value="opaque_exudate">Opaque eyes with exudate</option>
+            </select>
+        </div>
 
-  <p>Head:</p>
-  <select id="head">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="swollen">Swollen</option>
-  </select>
+        <div class="form-group">
+            <label for="orifices">Mouth & Nostrils:</label>
+            <select id="orifices">
+                <option value="normal">Normal</option>
+                <option value="mouth_plugs">White/Opaque eruptions or caseous material in mouth/larynx</option>
+                <option value="sticky_nose">Mucoid/Sticky discharge from nostrils</option>
+            </select>
+        </div>
 
-  <p>Beak:</p>
-  <select id="beak">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="deformed">Deformed</option>
-  </select>
+        <div class="section-title">2. Muscles & Cavity</div>
 
-  <p>Comb & Wattles:</p>
-  <select id="comb">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="pale">Pale</option>
-    <option value="swollen">Swollen</option>
-  </select>
+        <div class="form-group">
+            <label for="muscles">Muscles:</label>
+            <select id="muscles">
+                <option value="normal">Normal</option>
+                <option value="ibd_hem">Hemorrhages in chest and thigh muscles</option>
+                <option value="shanks_hem">Hemorrhages on shanks, chest, and thigh muscles</option>
+            </select>
+        </div>
 
-  <p>Eyes:</p>
-  <select id="eyes">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="discharge">Discharge</option>
-    <option value="blind">Blind</option>
-  </select>
+        <div class="form-group">
+            <label for="air_sacs">Air Sacs:</label>
+            <select id="air_sacs">
+                <option value="normal">Normal</option>
+                <option value="cloudy_cheesy">Cloudiness / Thickness / Frothy / Cheesy material</option>
+            </select>
+        </div>
 
-  <p>Natural Orifices:</p>
-  <select id="orifices">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="discharge">Discharge</option>
-    <option value="infected">Infected</option>
-  </select>
+        <div class="form-group">
+            <label for="pericardium">Pericardial Sac (Heart Fluid):</label>
+            <select id="pericardium">
+                <option value="normal">Normal</option>
+                <option value="straw_fluid">Excessive clear, straw-colored fluid (Hydro-pericardium)</option>
+                <option value="coronary_hem">Hemorrhages on coronary band / epicardial fat</option>
+            </select>
+        </div>
 
-  <hr>
+        <div class="section-title">3. Internal Organs (Necropsy)</div>
 
-  <h3>Internal Examination</h3>
+        <div class="form-group">
+            <label for="proventriculus">Proventriculus & Gizzard:</label>
+            <select id="proventriculus">
+                <option value="normal">Normal</option>
+                <option value="nd_hem">Hemorrhages in proventriculus / on fat of proventriculus</option>
+                <option value="junction_hem">Mucosal hemorrhages strictly on junction of gizzard & proventriculus</option>
+                <option value="gizzard_erosion">Gizzard erosions / Multifocal pancreatic necrosis</option>
+            </select>
+        </div>
 
-  <p>Muscles:</p>
-  <select id="muscles">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="emaciated">Emaciated</option>
-  </select>
+        <div class="form-group">
+            <label for="liver">Liver:</label>
+            <select id="liver">
+                <option value="normal">Normal</option>
+                <option value="ibh_necrotic">Swollen, pale liver with necrotic areas / Intranuclear inclusion bodies</option>
+                <option value="bronze_copper">Copper color, bronze, or greenish-brown friable liver</option>
+                <option value="cornmeal">Cornmeal appearance (Swollen with multiple white/yellow pinhead foci)</option>
+                <option value="fibrinous_layer">Fibrinous layer on liver and heart (Peri-hepatitis / Pericarditis)</option>
+            </select>
+        </div>
 
-  <p>Keel Bone:</p>
-  <select id="keel">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="breastblister">Breast Blister</option>
-  </select>
+        <div class="form-group">
+            <label for="spleen">Spleen:</label>
+            <select id="spleen">
+                <option value="normal">Normal</option>
+                <option value="mottled_marbled">Spleenomegaly / Mottling or Marbling of spleen</option>
+                <option value="necrotic_foci">Necrotic foci / Enlarged and necrotic spleen</option>
+            </select>
+        </div>
 
-  <p>Air Sacs:</p>
-  <select id="airsacs">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="cloudy">Cloudy</option>
-    <option value="infected">Infected</option>
-  </select>
+        <div class="form-group">
+            <label for="kidneys">Kidneys:</label>
+            <select id="kidneys">
+                <option value="normal">Normal</option>
+                <option value="urate_nephritis">Swollen kidneys, severe nephritis, heavy urate deposition</option>
+            </select>
+        </div>
 
-  <p>Liver:</p>
-  <select id="liver">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="enlarged">Enlarged</option>
-    <option value="necrotic">Necrotic</option>
-  </select>
+        <div class="form-group">
+            <label for="trachea">Trachea & Lungs:</label>
+            <select id="trachea">
+                <option value="normal">Normal</option>
+                <option value="nd_trachea">Hemorrhagic trachea with mucus or mucoid plugs</option>
+                <option value="ilt_blood">Blood clots or fresh blood in trachea / Laryngitis</option>
+                <option value="hydrothorax">Hydrothorax (water in lungs) / Pulmonary edema</option>
+            </select>
+        </div>
 
-  <p>Spleen:</p>
-  <select id="spleen">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="enlarged">Enlarged</option>
-  </select>
+        <div class="form-group">
+            <label for="lymphoid">Bursa & Thymus:</label>
+            <select id="lymphoid">
+                <option value="normal">Normal</option>
+                <option value="ibd_bursa">Bursa swollen up to 4 times, hemorrhages, or severe atrophy</option>
+                <option value="cia_thymus">Thymus atrophy and congestion / Atrophy of all lymphoid tissue</option>
+            </select>
+        </div>
 
-  <p>Joints:</p>
-  <select id="joints">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="swollen">Swollen</option>
-    <option value="pus">Pus</option>
-  </select>
+        <div class="form-group">
+            <label for="nerve">Nerves (Sciatic Nerve):</label>
+            <select id="nerve">
+                <option value="normal">Normal</option>
+                <option value="marek_nerve">Nerve enlargement 2-3 times, loss of striations, grey/yellowish</option>
+            </select>
+        </div>
 
-  <p>Lymphoid Tissue:</p>
-  <select id="lymph">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="atrophied">Atrophied</option>
-  </select>
+        <div class="form-group">
+            <label for="joints">Joints & Tendons:</label>
+            <select id="joints">
+                <option value="normal">Normal</option>
+                <option value="reovirus_joint">Inflammation of hock joint/tendon sheath, yellow/blood fluid</option>
+                <option value="ms_synovial">Viscous creamy to grey exudate in synovial membranes</option>
+            </select>
+        </div>
 
-  <p>Brain:</p>
-  <select id="brain">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="lesion">Lesion</option>
-  </select>
+        <div class="form-group">
+            <label for="intestinal_tract">Intestinal Tract & Eggs:</label>
+            <select id="intestinal_tract">
+                <option value="normal">Normal</option>
+                <option value="button_ulcers">Bluish-red raised necrotic areas (button ulcers) in lymphoid follicles/caecal tonsils</option>
+                <option value="coccidiosis_hem">Marked catarrhal hemorrhagic enteritis / Blood / Caecal cores</option>
+                <option value="turkish_towel">Turkish towel appearance (Roughening/velvet necrosis of intestinal wall)</option>
+                <option value="egg_deformity">Misshapen, soft-shelled, shell-less eggs / Regression of ovary</option>
+            </select>
+        </div>
 
-  <p>Respiratory Organs:</p>
-  <select id="resp">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="pneumonia">Pneumonia</option>
-    <option value="mucus">Mucus</option>
-  </select>
+        <button class="btn" onclick="analyzeDisease()">Analyze Disease</button>
 
-  <p>Intestinal Tract:</p>
-  <select id="intestine">
-    <option value="">Select</option>
-    <option value="normal">Normal</option>
-    <option value="bloody">Bloody</option>
-    <option value="inflamed">Inflamed</option>
-  </select>
+        <div id="result-box" class="result-box" style="display: none;">
+            <h3>Diagnostic Result (PDD by HAj):</h3>
+            <p id="disease-output"></p>
+        </div>
+    </div>
 
-  <br><br>
-
-  <button onclick="detectDisease()">Analyze Necropsy</button>
-
-  <hr>
-
-  <h2>Result</h2>
-  <p id="result">Result will appear here</p>
-
-</div>
-<script src="script.js">
-  
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>

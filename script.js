@@ -1,437 +1,129 @@
-let diseases = [
-  {
-    name: "Newcastle Disease",
-    type: "Viral",
-    respiratory: ["cough", "mucus", "dyspnea"],
-    nervous: ["torticollis", "paralysis"],
-    intestine: ["green diarrhea", "button ulcers"],
-    liver: ["hemorrhage"],
-    lymph: ["atrophy"],
-    treatment: {
-      supportive: ["electrolytes", "vitamins A D3 E"],
+function analyzeDisease() {
+    // Dropdowns se values lena
+    const bodyCondition = document.getElementById('body_condition').value;
+    const feather = document.getElementById('feather').value;
+    const skin = document.getElementById('skin').value;
+    const head = document.getElementById('head').value;
+    const comb = document.getElementById('comb').value;
+    const eyes = document.getElementById('eyes').value;
+    const orifices = document.getElementById('orifices').value;
+    const muscles = document.getElementById('muscles').value;
+    const airSacs = document.getElementById('air_sacs').value;
+    const pericardium = document.getElementById('pericardium').value;
+    const proventriculus = document.getElementById('proventriculus').value;
+    const liver = document.getElementById('liver').value;
+    const spleen = document.getElementById('spleen').value;
+    const kidneys = document.getElementById('kidneys').value;
+    const trachea = document.getElementById('trachea').value;
+    const lymphoid = document.getElementById('lymphoid').value;
+    const nerve = document.getElementById('nerve').value;
+    const joints = document.getElementById('joints').value;
+    const intestinalTract = document.getElementById('intestinal_tract').value;
 
-      antibiotic: [],
-      antiviral: [],
-      management: ["isolation", "stress reduction"],
-      vaccination: ["ND vaccine"],
-      control: ["biosecurity"]
-    }
-  },
+    let diagnosis = [];
 
-  {
-    name: "Infectious Bursal Disease",
-    type: "Viral",
-    bursa: ["swollen", "hemorrhagic", "atrophied"],
-    muscles: ["hemorrhage"],
-    kidney: ["swollen", "urate deposits"],
-    treatment: {
-      supportive: ["electrolytes"],
-      antibiotic: [],
-      antiviral: [],
-      management: ["litter management"],
-      vaccination: ["IBD vaccine"],
-      control: ["biosecurity"]
+    // 1. Newcastle Disease (ND)
+    if (proventriculus === 'nd_hem' || trachea === 'nd_trachea' || intestinalTract === 'button_ulcers' || feather === 'green_pasting') {
+        diagnosis.push("Newcastle Disease (Ranikhet)");
     }
-  },
 
-  {
-    name: "Avian Influenza",
-    type: "Viral",
-    respiratory: ["severe dyspnea", "pneumonia"],
-    comb_wattles: ["cyanotic"],
-    skin: ["edema"],
-    liver: ["necrosis"],
-    heart: ["hemorrhage"],
-    treatment: {
-      supportive: [],
-      antibiotic: [],
-      antiviral: [],
-      management: ["quarantine", "culling"],
-      vaccination: [],
-      control: ["strict biosecurity"]
+    // 2. Infectious Bursal Disease (IBD / Gumboro)
+    if (lymphoid === 'ibd_bursa' || muscles === 'ibd_hem' || feather === 'grey_white_pasting' || proventriculus === 'junction_hem') {
+        diagnosis.push("Infectious Bursal Disease (Gumboro)");
     }
-  },
 
-  {
-    name: "Infectious Bronchitis",
-    type: "Viral",
-    respiratory: ["cough", "rales", "mucus"],
-    kidney: ["swollen", "nephritis"],
-    egg: ["soft shell", "thin shell"],
-    treatment: {
-      supportive: ["electrolytes"],
-      antibiotic: ["secondary infection control"],
-      antiviral: [],
-      management: ["ventilation"],
-      vaccination: ["IB vaccine"],
-      control: ["biosecurity"]
+    // 3. Avian Influenza (AI)
+    if (bodyCondition === 'stargazing' || comb === 'cyanotic' || muscles === 'shanks_hem' || skin === 'subcut_hem' || airSacs === 'cloudy_cheesy') {
+        diagnosis.push("Avian Influenza (Fowl Plague)");
     }
-  },
 
-  {
-    name: "Inclusion Body Hepatitis",
-    type: "Viral",
-    liver: ["necrosis", "enlarged"],
-    kidney: ["pale"],
-    treatment: {
-      supportive: ["vitamins", "liver tonic"],
-      antibiotic: [],
-      antiviral: [],
-      management: ["stress control"],
-      vaccination: [],
-      control: ["biosecurity"]
+    // 4. Inclusion Body Hepatitis (IBH)
+    if (liver === 'ibh_necrotic' || skin === 'icteric' || (comb === 'anemia' && liver === 'ibh_necrotic')) {
+        diagnosis.push("Inclusion Body Hepatitis (IBH)");
     }
-  },
 
-  {
-    name: "Hydropericardium Syndrome",
-    type: "Viral",
-    heart: ["fluid"],
-    liver: ["necrosis"],
-    kidney: ["swollen"],
-    treatment: {
-      supportive: ["electrolytes"],
-      antibiotic: [],
-      antiviral: [],
-      management: ["ventilation"],
-      vaccination: ["adenovirus vaccine"],
-      control: ["biosecurity"]
+    // 5. Hydro-pericardium Syndrome (HPS / Angara)
+    if (pericardium === 'straw_fluid' || trachea === 'hydrothorax' || proventriculus === 'gizzard_erosion') {
+        diagnosis.push("Hydro-pericardium Syndrome (Angara Disease)");
     }
-  },
 
-  {
-    name: "Egg Drop Syndrome",
-    type: "Viral",
-    egg: ["soft shell", "thin shell"],
-    ovary: ["regression"],
-    treatment: {
-      supportive: [],
-      management: ["hygiene"],
-      vaccination: ["EDS vaccine"],
-      control: ["biosecurity"]
+    // 6. Egg Drop Syndrome (EDS)
+    if (intestinalTract === 'egg_deformity' && liver === 'normal' && trachea === 'normal') {
+        diagnosis.push("Egg Drop Syndrome (EDS-76)");
     }
-  },
 
-  {
-    name: "Fowl Pox",
-    type: "Viral",
-    skin: ["nodules", "scabs"],
-    mouth: ["white lesions"],
-    respiratory: ["dyspnea"],
-    treatment: {
-      supportive: ["antiseptic"],
-      management: ["mosquito control"],
-      vaccination: ["pox vaccine"],
-      control: ["vector control"]
+    // 7. Infectious Bronchitis (IB)
+    if (kidneys === 'urate_nephritis' || (intestinalTract === 'egg_deformity' && airSacs === 'cloudy_cheesy')) {
+        diagnosis.push("Infectious Bronchitis (IB) / Nephrotropic Strain");
     }
-  },
 
-  {
-    name: "Avian Encephalomyelitis",
-    type: "Viral",
-    nervous: ["ataxia", "tremors"],
-    treatment: {
-      supportive: [],
-      vaccination: ["breeder vaccination"],
-      control: ["biosecurity"]
+    // 8. Chicken Infectious Anemia (CIA)
+    if (lymphoid === 'cia_thymus' || (skin === 'subcut_hem' && comb === 'anemia')) {
+        diagnosis.push("Chicken Infectious Anemia (Blue Wing Disease)");
     }
-  },
 
-  {
-    name: "Swollen Head Syndrome",
-    type: "Viral",
-    head: ["swelling"],
-    respiratory: ["sinusitis"],
-    eyes: ["discharge"],
-    treatment: {
-      supportive: ["vitamins"],
-      antibiotic: ["secondary infection"],
-      management: ["ventilation"],
-      control: ["biosecurity"]
+    // 9. Infectious Laryngotracheitis (ILT)
+    if (trachea === 'ilt_blood' || (eyes === 'discharge' && trachea === 'ilt_blood')) {
+        diagnosis.push("Infectious Laryngotracheitis (ILT)");
     }
-  },
 
-  {
-    name: "Reovirus Arthritis",
-    type: "Viral",
-    joints: ["swollen", "lameness"],
-    treatment: {
-      supportive: ["anti-inflammatory"],
-      management: ["rest"],
-      vaccination: ["breeder vaccination"],
-      control: ["biosecurity"]
+    // 10. Fowl Pox
+    if (skin === 'pox_crust' || orifices === 'mouth_plugs') {
+        diagnosis.push("Fowl Pox (Dry/Wet Pox)");
     }
-  },
 
-  {
-    name: "Marek’s Disease",
-    type: "Neoplastic",
-    nervous: ["paralysis"],
-    eye: ["grey eye"],
-    lymph: ["tumors"],
-    treatment: {
-      supportive: [],
-      vaccination: ["day-old vaccine"],
-      control: ["biosecurity"]
+    // 11. Swollen Head Syndrome (SHM)
+    if (head === 'subcut_oedema' || orifices === 'sticky_nose') {
+        diagnosis.push("Swollen Head Syndrome");
     }
-  },
 
-  {
-    name: "Infectious Coryza",
-    type: "Bacterial",
-    face: ["swollen"],
-    respiratory: ["nasal discharge"],
-    eyes: ["swollen"],
-    treatment: {
-      antibiotic: ["sulfonamides", "tilmicosin"],
-      supportive: [],
-      management: ["ventilation"],
-      control: ["biosecurity"]
+    // 12. Reovirus Infection
+    if (joints === 'reovirus_joint') {
+        diagnosis.push("Reovirus Infection (Viral Arthritis)");
     }
-  },
 
-  {
-    name: "Fowl Cholera",
-    type: "Bacterial",
-    liver: ["necrosis"],
-    heart: ["hemorrhage"],
-    spleen: ["enlarged"],
-    treatment: {
-      antibiotic: ["penicillin", "streptomycin"],
-      vaccination: ["cholera vaccine"],
-      control: ["biosecurity"]
+    // 13. Marek's Disease
+    if (nerve === 'marek_nerve' || eyes === 'grey_eye' || feather === 'marek_follicle') {
+        diagnosis.push("Marek's Disease");
     }
-  },
 
-  {
-    name: "Colibacillosis",
-    type: "Bacterial",
-    air_sacs: ["cloudy"],
-    liver: ["perihepatitis"],
-    treatment: {
-      antibiotic: ["enrofloxacin"],
-      management: ["hygiene"],
-      control: ["biosecurity"]
+    // 14. Salmonella (Pullorum / Fowl Typhoid / Paratyphoid)
+    if (liver === 'bronze_copper' || feather === 'chalky_white' || liver === 'cornmeal') {
+        diagnosis.push("Avian Salmonellosis (Pullorum / Fowl Typhoid)");
     }
-  },
 
-  {
-    name: "CRD (Mycoplasma)",
-    type: "Bacterial",
-    respiratory: ["cough", "rales"],
-    air_sacs: ["cloudy"],
-    treatment: {
-      antibiotic: ["tylosin", "tiamulin"],
-      management: ["ventilation"],
-      control: ["biosecurity"]
+    // 15. Chronic Respiratory Disease (CRD / Mycoplasma)
+    if (liver === 'fibrinous_layer' || airSacs === 'cloudy_cheesy') {
+        diagnosis.push("Chronic Respiratory Disease (CRD) / Colibacillosis Complicated");
     }
-  },
 
-  {
-    name: "Mycoplasma Synoviae",
-    type: "Bacterial",
-    joints: ["swollen"],
-    treatment: {
-      antibiotic: ["lincomycin"],
-      control: ["biosecurity"]
+    // 16. Mycoplasma Synoviae (MS)
+    if (joints === 'ms_synovial') {
+        diagnosis.push("Mycoplasma Synoviae Infection");
     }
-  },
 
-  {
-    name: "Salmonellosis",
-    type: "Bacterial",
-    intestine: ["white nodules"],
-    liver: ["enlarged"],
-    treatment: {
-      antibiotic: ["amoxicillin"],
-      control: ["hygiene"]
+    // 17. Coccidiosis
+    if (intestinalTract === 'coccidiosis_hem') {
+        diagnosis.push("Coccidiosis / Enteric Paratyphoid");
     }
-  },
 
-  {
-    name: "Pullorum Disease",
-    type: "Bacterial",
-    intestine: ["white diarrhea"],
-    liver: ["enlarged"],
-    treatment: {
-      management: ["culling"],
-      control: ["biosecurity"]
+    // 18. Clostridial Infections (Necrotic Enteritis / GD)
+    if (intestinalTract === 'turkish_towel' || skin === 'gangrenous') {
+        diagnosis.push("Clostridial Infection (Necrotic Enteritis / Gangrenous Dermatitis)");
     }
-  },
 
-  {
-    name: "Fowl Typhoid",
-    type: "Bacterial",
-    liver: ["bronzed"],
-    spleen: ["enlarged"],
-    treatment: {
-      antibiotic: ["furazolidone"],
-      control: ["biosecurity"]
-    }
-  },
+    // Output Display Logic
+    const resultBox = document.getElementById('result-box');
+    const outputText = document.getElementById('disease-output');
 
-  {
-    name: "Coccidiosis",
-    type: "Protozoal",
-    intestine: ["bloody", "inflamed"],
-    droppings: ["bloody"],
-    treatment: {
-      antiprotozoal: ["amprolium", "toltrazuril"],
-      management: ["litter dryness"],
-      control: ["biosecurity"]
-    }
-  },
+    resultBox.style.display = "block";
 
-  {
-    name: "Histomoniasis",
-    type: "Protozoal",
-    liver: ["necrotic"],
-    ceca: ["inflamed"],
-    treatment: {
-      antiprotozoal: ["metronidazole"],
-      control: ["biosecurity"]
+    if (diagnosis.length > 0) {
+        let uniqueDiagnosis = [...new Set(diagnosis)];
+        outputText.innerHTML = "Suspected Diagnosis based on PDD by HAj rules:<br><ul style='color:#c0392b; font-size:1.2rem;'>" + 
+            uniqueDiagnosis.map(d => `<li><strong>${d}</strong></li>`).join('') + "</ul>";
+    } else {
+        outputText.innerHTML = "No clear diagnostic patterns matched. If bird shows general symptoms, please review the options or consult a lab.";
     }
-  },
-
-  {
-    name: "Aspergillosis",
-    type: "Fungal",
-    air_sacs: ["fungal plaques"],
-    lungs: ["nodules"],
-    treatment: {
-      antifungal: ["nystatin"],
-      management: ["ventilation"],
-      control: ["moisture control"]
-    }
-  },
-
-  {
-    name: "Vitamin A Deficiency",
-    type: "Nutritional",
-    eyes: ["discharge"],
-    respiratory: ["mucus"],
-    treatment: {
-      supplement: ["vitamin A"],
-      management: ["feed balance"]
-    }
-  },
-
-  {
-    name: "Vitamin D Deficiency",
-    type: "Nutritional",
-    bones: ["weak", "deformed"],
-    joints: ["swollen"],
-    treatment: {
-      supplement: ["vitamin D3", "calcium"],
-      management: ["sunlight exposure"]
-    }
-  },
-
-  {
-    name: "Vitamin E Deficiency",
-    type: "Nutritional",
-    nervous: ["ataxia"],
-    muscles: ["degeneration"],
-    treatment: {
-      supplement: ["vitamin E"],
-      management: ["feed quality"]
-    }
-  },
-
-  {
-    name: "Botulism",
-    type: "Toxic",
-    nervous: ["paralysis"],
-    treatment: {
-      management: ["remove toxin source"],
-      supportive: ["fluids"]
-    }
-  },
-
-  {
-    name: "Mycotoxicosis",
-    type: "Toxic",
-    liver: ["fatty", "necrotic"],
-    kidney: ["swollen"],
-    treatment: {
-      management: ["remove contaminated feed"],
-      control: ["mycotoxin binders"]
-    }
-  },
-
-  {
-    name: "Ascites",
-    type: "Metabolic",
-    heart: ["enlarged"],
-    abdomen: ["fluid"],
-    treatment: {
-      management: ["improve ventilation"],
-      supportive: ["oxygen support"]
-    }
-  },
-
-  {
-    name: "Fatty Liver Syndrome",
-    type: "Metabolic",
-    liver: ["fatty", "enlarged"],
-    treatment: {
-      management: ["diet correction", "energy balance"]
-    }
-  }
-];
-
-// =========================
-  // 1. DISEASE DATABASE
-  // =========================
-  let diseases = [
-    // yahan tum apni 33 diseases wali JS paste karo
-  ];
-  // =========================
-  // 2. MATCH FUNCTION
-  // =========================
-  function calculateMatch(inputSymptoms, diseaseSymptoms) {
-    let match = 0;
-    let total = 0;
-    for (let key in diseaseSymptoms) {
-      if (Array.isArray(diseaseSymptoms[key])) {
-        total += diseaseSymptoms[key].length;
-        diseaseSymptoms[key].forEach(symptom => {
-          if (inputSymptoms.includes(symptom)) {
-            match++;
-          }
-        });
-      }
-    }
-    return Math.round((match / total) * 100);
-  }
-  // =========================
-  // 3. MAIN FUNCTION
-  // =========================
-  function detectDisease() {
-    let inputSymptoms = [];
-    inputSymptoms.push(document.getElementById("body").value);
-    inputSymptoms.push(document.getElementById("feather").value);
-    inputSymptoms.push(document.getElementById("skin").value);
-    inputSymptoms.push(document.getElementById("head").value);
-    inputSymptoms.push(document.getElementById("beak").value);
-    inputSymptoms.push(document.getElementById("comb").value);
-    inputSymptoms.push(document.getElementById("eyes").value);
-    inputSymptoms.push(document.getElementById("orifices").value);
-    inputSymptoms.push(document.getElementById("muscles").value);
-    inputSymptoms.push(document.getElementById("keel").value);
-    inputSymptoms.push(document.getElementById("airsacs").value);
-    inputSymptoms.push(document.getElementById("liver").value);
-    inputSymptoms.push(document.getElementById("spleen").value);
-    inputSymptoms.push(document.getElementById("joints").value);
-    inputSymptoms.push(document.getElementById("lymph").value);
-    inputSymptoms.push(document.getElementById("brain").value);
-    inputSymptoms.push(document.getElementById("resp").value);
-    inputSymptoms.push(document.getElementById("intestine").value);
-    let results = [];
-    for (let i = 0; i < diseases.length; i++) {
-      let score = calculateMatch(inputSymptoms, diseases[i]);
-      results.push(diseases[i].name + " = " + score + "%");
-    }
-    document.getElementById("result").innerHTML = results.join("<br>");
-  }
+}
 
