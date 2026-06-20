@@ -1,0 +1,148 @@
+/* --- Global Styles --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Header Section --- */
+header {
+    background-color: #1abc9c;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+header p {
+    margin: 8px 0 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* --- Main Container --- */
+.container {
+    max-width: 650px;
+    margin: 25px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+}
+
+/* --- Section Headings --- */
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #16a085;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Form Groups (Labels & Dropdowns) --- */
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 0.95rem;
+    color: #334155;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-sizing: border-box; /* Is se dropdown padding baahir nahi nikalti */
+}
+
+select:focus {
+    border-color: #1abc9c;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(26, 188, 156, 0.15);
+}
+
+/* --- Analyze Button --- */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 35px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(230, 126, 34, 0.2);
+}
+
+.btn:hover {
+    background-color: #d35400;
+    transform: translateY(-1px); /* Halki si lift milti hai hover par */
+    box-shadow: 0 6px 12px rgba(211, 84, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* --- Result Box --- */
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0fdf4;
+    border-left: 6px solid #16a085;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.result-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #115e59;
+    font-size: 1.15rem;
+}
+
+#disease-output ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .container {
+        margin: 15px;
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+
